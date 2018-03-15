@@ -13,6 +13,11 @@ h1, h2, h3 {
   font-weight: 400;
 }
 
+a {
+  border-bottom: 1px solid #4e2a8e;
+  color: #4e2a8e;
+  text-decoration: none;
+}
 
 .remark-code {
   display: block;
