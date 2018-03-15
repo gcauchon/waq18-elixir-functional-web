@@ -1,0 +1,9 @@
+version: '2'
+services:
+  remark:
+    image: nginx
+    container_name: waq-keynote
+    ports:
+      - 80:80
+    volumes:
+      - .:/usr/share/nginx/html
