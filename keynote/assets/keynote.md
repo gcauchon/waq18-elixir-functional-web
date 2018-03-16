@@ -52,6 +52,26 @@ La machine virtuelle `erlang`.
 
 _OTP (Open Telecom Platform) is a set of libraries that ships with Erlang. Erlang developers use OTP to build robust, fault-tolerant applications._
 
+???
+
+### OTP
+
+Toutes les composantes d’une app sont déployés comme des "acteurs" suppervisés. Voir `application.ex` : 
+
+- Ecto repository
+- Http server endpoint
+
+### Extra
+
+```shell
+iex(1)> Process.whereis(Demo.Repo)
+#PID<0.123.0>
+iex(2)> Process.whereis(Demo.Repo) |> Process.exit(:kill)
+true
+iex(3)> Process.whereis(Demo.Repo)
+#PID<0.123.0>
+```
+
 ---
 # `mix`
 

@@ -3,14 +3,14 @@ defmodule Demo.Mixfile do
 
   def project do
     [
-      app: :demo,
-      version: "0.0.1",
-      elixir: "~> 1.4",
-      elixirc_paths: elixirc_paths(Mix.env),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers,
-      start_permanent: Mix.env == :prod,
       aliases: aliases(),
-      deps: deps()
+      app: :demo,
+      compilers: [:phoenix, :gettext] ++ Mix.compilers,
+      deps: deps(),
+      elixir: "~> 1.6",
+      elixirc_paths: elixirc_paths(Mix.env),
+      start_permanent: Mix.env == :prod,
+      version: "0.0.1"
     ]
   end
 
