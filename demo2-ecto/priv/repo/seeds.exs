@@ -1,4 +1,4 @@
-alias SimpleEcto.{Repo, Agenda}
+alias Demo.{Repo, Agenda}
 
 gcauchon = %Agenda{
   title: "Web “fonctionnel” et outils de développement",

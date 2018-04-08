@@ -1,4 +1,4 @@
-defmodule SimpleEcto.Repo.Migrations.CreateAgenda do
+defmodule Demo.Repo.Migrations.CreateAgenda do
   use Ecto.Migration
 
   def change do
