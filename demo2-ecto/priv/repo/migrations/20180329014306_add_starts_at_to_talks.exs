@@ -1,4 +1,4 @@
-defmodule Demo.Repo.Migrations.AddStartsAtToTalks do
+defmodule Demo.Repo.Migrations.AddStartsAtToTalk do
   use Ecto.Migration
 
   # def change do
