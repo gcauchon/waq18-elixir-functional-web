@@ -32,6 +32,5 @@ defmodule Demo.Agenda.Talk do
     |> cast(params, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
     |> validate_format(:handle, ~r/@\w+/)
-    |> IO.inspect(prefix: "changeset")
   end
 end
