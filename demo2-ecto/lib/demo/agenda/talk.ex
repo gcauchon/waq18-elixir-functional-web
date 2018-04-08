@@ -1,4 +1,4 @@
-defmodule Demo.Talk do
+defmodule Demo.Agenda.Talk do
   use Ecto.Schema
 
   import Ecto.Changeset
@@ -8,7 +8,7 @@ defmodule Demo.Talk do
     field(:title, :string)
     field(:description, :string)
     field(:speaker, :string)
-    # field(:handle, :string)
+    field(:handle, :string)
     field(:starts_at, :naive_datetime)
 
     timestamps()
@@ -27,10 +27,11 @@ defmodule Demo.Talk do
   )a
 
 
-  def changeset(talk, params) do
+  def changeset(talk, params \\ %{}) do
     talk
     |> cast(params, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
-    # |> validate_format(:handle, ~r/@\w+/)
+    |> validate_format(:handle, ~r/@\w+/)
+    |> IO.inspect(prefix: "changeset")
   end
 end

@@ -8,14 +8,15 @@ defmodule Demo.MixProject do
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      elixirc_paths: elixir_paths(Mix.env)
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: [:logger, :faker],
       mod: {Demo.Application, []}
     ]
   end
@@ -24,7 +25,12 @@ defmodule Demo.MixProject do
   defp deps do
     [
       {:ecto, "~> 2.0"},
-      {:postgrex, "~> 0.11"}
+      {:postgrex, "~> 0.13"},
+
+      {:timex, "~> 3.2"},
+
+      {:ex_machina, "~> 2.1", only: :test},
+      {:faker, "~> 0.10", only: ~w(dev test)a}
     ]
   end
 
@@ -35,4 +41,7 @@ defmodule Demo.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
+
+  defp elixir_paths(:test), do: ["lib", "test/support"]
+  defp elixir_paths(_),     do: ["lib"]
 end
