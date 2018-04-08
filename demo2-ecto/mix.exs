@@ -4,10 +4,11 @@ defmodule Demo.MixProject do
   def project do
     [
       app: :demo,
-      version: "0.1.0",
+      version: "0.0.2",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -24,6 +25,14 @@ defmodule Demo.MixProject do
     [
       {:ecto, "~> 2.0"},
       {:postgrex, "~> 0.11"}
+    ]
+  end
+
+  defp aliases do
+    [
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end
