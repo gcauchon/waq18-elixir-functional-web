@@ -1,4 +1,4 @@
-alias Demo.{Repo, Talk}
+alias Demo.{Repo, Agenda.Talk}
 
 talks = [
   %{

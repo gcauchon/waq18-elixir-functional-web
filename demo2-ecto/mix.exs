@@ -6,10 +6,10 @@ defmodule Demo.MixProject do
       app: :demo,
       version: "0.0.2",
       elixir: "~> 1.6",
+      elixirc_paths: elixirc_paths(Mix.env)
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
-      elixirc_paths: elixir_paths(Mix.env)
     ]
   end
 
@@ -20,7 +20,10 @@ defmodule Demo.MixProject do
       mod: {Demo.Application, []}
     ]
   end
-
+  
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_),     do: ["lib"]
+  
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
@@ -28,6 +31,7 @@ defmodule Demo.MixProject do
       {:postgrex, "~> 0.13"},
 
       {:timex, "~> 3.2"},
+      :w
 
       {:ex_machina, "~> 2.1", only: :test},
       {:faker, "~> 0.10", only: ~w(dev test)a}
@@ -40,8 +44,5 @@ defmodule Demo.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
-  end
-
-  defp elixir_paths(:test), do: ["lib", "test/support"]
-  defp elixir_paths(_),     do: ["lib"]
+  end 
 end
