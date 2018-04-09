@@ -7,5 +7,7 @@ defmodule DemoWeb.Router do
 
   scope "/api", DemoWeb do
     pipe_through(:api)
+
+    resources("/talks", TalkController, except: ~w[new edit]a)
   end
 end
