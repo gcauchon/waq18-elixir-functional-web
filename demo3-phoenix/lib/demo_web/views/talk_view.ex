@@ -11,6 +11,9 @@ defmodule DemoWeb.TalkView do
   end
 
   def render("talk.json", %{talk: talk}) do
-    %{id: talk.id}
+    json = Map.take(talk, ~w[id title description speaker]a)
+    speaker = Map.take(talk.speaker, ~w[name email handle]a)
+
+    %{json | speaker: speaker}
   end
 end
