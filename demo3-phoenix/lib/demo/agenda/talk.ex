@@ -3,13 +3,15 @@ defmodule Demo.Agenda.Talk do
 
   import Ecto.Changeset
 
+  alias Demo.Agenda.Speaker
+
   # Schema
   schema "talks" do
     field(:title, :string)
     field(:description, :string)
-    field(:speaker, :string)
-    field(:handle, :string)
     field(:starts_at, :naive_datetime)
+
+    belongs_to(:speaker, Speaker)
 
     timestamps()
   end
@@ -18,19 +20,15 @@ defmodule Demo.Agenda.Talk do
   @required_fields ~w(
     title
     description
-    speaker
+    speaker_id
     starts_at
   )a
-
-  @optional_fields ~w(
-    handle 
-  )a
-
+  @optional_fields []
 
   def changeset(talk, params \\ %{}) do
     talk
     |> cast(params, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
-    |> validate_format(:handle, ~r/@\w+/)
+    |> assoc_constraint(:speaker)
   end
 end
