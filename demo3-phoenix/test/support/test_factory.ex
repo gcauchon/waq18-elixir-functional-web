@@ -15,6 +15,6 @@ defmodule DemoTest.Factory do
 
   defp random_datetime do
     DateTime.utc_now()
-    |> Timex.add(Timex.Duration.from_hours(:rand.uniform(24*7)))
+    |> Timex.add(Timex.Duration.from_hours(:rand.uniform(24 * 7)))
   end
 end

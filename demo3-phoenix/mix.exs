@@ -39,11 +39,9 @@ defmodule Demo.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-
       {:timex, "~> 3.2"},
-
       {:ex_machina, "~> 2.1", only: :test},
-      {:faker, "~> 0.10", only: ~w(dev test)a}
+      {:faker, "~> 0.10", only: ~w[dev test]a}
     ]
   end
 

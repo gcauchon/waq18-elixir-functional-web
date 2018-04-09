@@ -17,12 +17,12 @@ defmodule Demo.Agenda.Talk do
   end
 
   # Validations
-  @required_fields ~w(
+  @required_fields ~w[
     title
     description
     speaker_id
     starts_at
-  )a
+  ]a
   @optional_fields []
 
   def changeset(talk, params \\ %{}) do

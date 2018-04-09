@@ -10,5 +10,4 @@ config :demo, DemoWeb.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :demo, Demo.Repo,
-  pool: Ecto.Adapters.SQL.Sandbox
+config :demo, Demo.Repo, pool: Ecto.Adapters.SQL.Sandbox

@@ -18,8 +18,8 @@ defmodule Demo.Agenda.Speaker do
   end
 
   # Validations
-  @required_fields ~w(name)a
-  @optional_fields ~w(email website handle)a
+  @required_fields ~w[name]a
+  @optional_fields ~w[email website handle]a
 
   def changeset(talk, params \\ %{}) do
     talk
