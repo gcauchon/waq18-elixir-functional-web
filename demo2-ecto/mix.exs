@@ -6,10 +6,10 @@ defmodule Demo.MixProject do
       app: :demo,
       version: "0.0.2",
       elixir: "~> 1.6",
-      elixirc_paths: elixirc_paths(Mix.env)
+      elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases(),
+      aliases: aliases()
     ]
   end
 
@@ -29,10 +29,7 @@ defmodule Demo.MixProject do
     [
       {:ecto, "~> 2.0"},
       {:postgrex, "~> 0.13"},
-
       {:timex, "~> 3.2"},
-      :w
-
       {:ex_machina, "~> 2.1", only: :test},
       {:faker, "~> 0.10", only: ~w(dev test)a}
     ]

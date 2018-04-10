@@ -13,7 +13,7 @@ defmodule Demo do
   """
   def fib(n) do
     started_at = :os.system_time(:seconds)
-    number = fibonnaci(n)
+    number = fibonnaci(n, 1, 0) # fibonnaci(n, 1, 0)
     ended_at = :os.system_time(:seconds)
 
     IO.puts("Processed in #{ended_at-started_at} seconds.")
@@ -22,13 +22,13 @@ defmodule Demo do
   end
 
   # "Basic" implementation
-  defp fibonnaci(0), do: 0
-  defp fibonnaci(1), do: 1
-  defp fibonnaci(n), do: fibonnaci(n-1) + fibonnaci(n-2)
+  # defp fibonnaci(0), do: 0
+  # defp fibonnaci(1), do: 1
+  # defp fibonnaci(n), do: fibonnaci(n-1) + fibonnaci(n-2)
 
   # Tail Call Optimization `fibonnaci(n, 1, 0)`
-  # defp fibonnaci(0, _, result), do: result
-  # defp fibonnaci(n, next, result) do
-  #   fibonnaci(n-1, next+result, next)
-  # end
+  defp fibonnaci(0, _, result), do: result
+  defp fibonnaci(n, next, result) do
+    fibonnaci(n-1, next+result, next)
+  end
 end
