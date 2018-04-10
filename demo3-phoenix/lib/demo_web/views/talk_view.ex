@@ -1,5 +1,6 @@
 defmodule DemoWeb.TalkView do
   use DemoWeb, :view
+
   alias DemoWeb.TalkView
 
   def render("index.json", %{talks: talks}) do
