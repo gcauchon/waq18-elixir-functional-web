@@ -6,6 +6,10 @@ defmodule DemoGraphQL.Resolvers.Talk do
     {:ok, Agenda.list_talks()}
   end
 
+  def get_talk(_, %{id: id}, _context) do
+    {:ok, Agenda.get_talk(id)}
+  end
+
   # Dataloader
   def data, do: Dataloader.Ecto.new(Demo.Repo, query: &query/2)
 

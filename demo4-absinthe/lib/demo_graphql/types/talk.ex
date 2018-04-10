@@ -20,5 +20,13 @@ defmodule DemoGraphQL.Types.Talk do
     field :talks, list_of(:talk) do
       resolve(&TalkResolver.list_all/3)
     end
+
+    @desc "Get the details about a talk"
+    field :talk, :talk do
+      arg(:id, non_null(:id))
+
+      resolve(&TalkResolver.get_talk/3)
+    end
+
   end 
 end
