@@ -27,6 +27,5 @@ defmodule DemoGraphQL.Types.Talk do
 
       resolve(&TalkResolver.get_talk/3)
     end
-
   end 
 end
